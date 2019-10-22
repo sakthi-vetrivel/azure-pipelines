@@ -8,13 +8,13 @@ jobs:
     
     - uses: azure/container-actions/docker-login@master
       with:
-        login-server: contoso.azurecr.io
+        login-server: suvetrivtest.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: |
-        docker build . -t contoso.azurecr.io/k8sdemo:${{ github.sha }}
-        docker push contoso.azurecr.io/k8sdemo:${{ github.sha }}
+        docker build . -t suvetrivtest.azurecr.io/k8sdemo:${{ github.sha }}
+        docker push suvetrivtest.azurecr.io/k8sdemo:${{ github.sha }}
       
     # Set the target AKS cluster. 
     - uses: azure/k8s-actions/aks-set-context@master
